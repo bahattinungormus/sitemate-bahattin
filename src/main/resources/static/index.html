@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="js/issue-form.js"></script>
+    <script src="js/issue-list.js"></script>
+    <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/issue-list.css"/>
+    <title>Sitemate Backend Challenge</title>
+</head>
+<body>
+<div id="page-container">
+
+</div>
+</body>
+<script>
+  (function () {
+    let showIssueForm = function () {
+      let issueForm = IssueFormCreator.create();
+      document.getElementById('page-container').appendChild(issueForm);
+    }
+
+    let showIssueList = function () {
+      (async () => {
+        let response = await fetch('http://localhost:8080/issues/list', {
+          method: 'get',
+          headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          }
+        });
+        let issues = await response.json();
+        console.log(issues);
+        let issueList = IssueListCreator.create(issues);
+        document.getElementById('page-container').appendChild(issueList);
+      })();
+    }
+
+    window.addEventListener('load', function (event) {
+      showIssueForm();
+      showIssueList();
+    })
+  })();
+</script>
+</html>

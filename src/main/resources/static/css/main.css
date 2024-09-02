@@ -1,0 +1,50 @@
+#page-container {
+    display: flex;
+    width: 960px;
+    margin: auto;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 2em;
+}
+
+.issue-form {
+    display: grid;
+    margin: auto;
+    grid-template-rows: 1fr;
+    row-gap: 1em;
+}
+
+.issue-form fieldset {
+    display: grid;
+    width: 80%;
+    margin: auto;
+    grid-template-columns: 0.1fr 1fr;
+    column-gap: 1em;
+    row-gap: 1em;
+}
+
+.issue-form label {
+    display: inline;
+    font-weight: bold;
+}
+
+.issue-form label::after {
+    content: ':';
+}
+
+.issue-form input {
+    display: block;
+}
+
+.issue-form textarea {
+    display: block;
+}
+
+.issue-form-controls {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
